@@ -1,0 +1,26 @@
+<% layout('layout') -%>
+<h1 class="page-title">All Events</h1>
+<% if (events && events.length > 0) { %>
+  <div class="events-grid">
+    <% events.forEach(event => { %>
+      <a href="/events/<%= event._id %>" class="event-card">
+        <h3><%= event.title %></h3>
+        <% if (event.date) { %>
+          <p class="event-date"><%= new Date(event.date).toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }) %></p>
+        <% } %>
+        <% if (event.location) { %>
+          <p class="event-location">📍 <%= event.location %></p>
+        <% } %>
+        <% if (event.description) { %>
+          <p class="event-desc"><%= event.description.substring(0, 120) %><%= event.description.length > 120 ? '...' : '' %></p>
+        <% } %>
+      </a>
+    <% }) %>
+  </div>
+<% } else { %>
+  <div class="empty-state">
+    <h3>No events yet</h3>
+    <p>Be the first to create an event!</p>
+    <a href="/events/new" class="btn btn-primary" style="margin-top: 1rem;">Create Event</a>
+  </div>
+<% } %>
