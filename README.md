@@ -19,4 +19,4 @@ Passport.js
 https://ngo-project-1-s00r.onrender.com/
 
 ## GitHub
-https://github.com/Ayush122/ngo-project
+https://github.com/Ayush22/ngo-project
